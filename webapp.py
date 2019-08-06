@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from flask import Flask, render_template, request
 
@@ -18,4 +19,5 @@ def upload_file1():
       return render_template('final.html',data = dicti)
 		
 if __name__ == '__main__':
-   app.run(debug = True)
+	port = int(os.environ.get('PORT',5000))
+	app.run(host='0.0.0.0',port =port)
